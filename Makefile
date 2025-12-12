@@ -442,6 +442,9 @@ doc-license:
 #   choose a license, https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository
 	touch LICENSE
 
+doc-myst-site-local-start:
+	myst start
+
 doc-myst-site-init:
 	myst init
 
