@@ -7,6 +7,8 @@ Group Members
 - Colby Zhang
 - Olorundamilola Kazeem
 
+Group Resources
+- [Group Drive Location](https://drive.google.com/drive/folders/1Za-QzHQQBWf5ob-vrTWZSwD2isSU4_oy?usp=sharing)
 
 ## TODOs
 
@@ -164,7 +166,7 @@ A good README should be short but also provide all the useful information to hel
 
 ## Misc.
 
-...
+[Group Drive Location](https://drive.google.com/drive/folders/1Za-QzHQQBWf5ob-vrTWZSwD2isSU4_oy?usp=sharing)
 
 ```bash
 

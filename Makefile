@@ -149,17 +149,16 @@ all-env-create-from-scratch-once:
 	@echo "One-time bootstrap complete. environment.yml written."
 	@echo "Commit it and use 'make all-env-create-from-yml' next time."
 
-
 # all-env-create-from-yml: env-source-conda env-create-from-yml env-activate ker-create
-all-env-create-from-yml: $(CONDA_INIT) env-create-from-yml env-activate ker-create
-	@echo "Environment created from environment.yml and kernel installed."
-
-# all-env-create-from-yml:
-# 	$(CONDA_INIT); \
-# 	conda env create -f environment.yml; \
-# 	conda activate $(ENV_NAME); \
-# 	python -m ipykernel install --user --name $(ENV_NAME) --display-name "IPython - ($(ENV_NAME))"
+# # all-env-create-from-yml: $(CONDA_INIT) env-create-from-yml env-activate ker-create
 # 	@echo "Environment created from environment.yml and kernel installed."
+
+all-env-create-from-yml:
+	$(CONDA_INIT); \
+	conda env create -f environment.yml; \
+	conda activate $(ENV_NAME); \
+	python -m ipykernel install --user --name $(ENV_NAME) --display-name "IPython - ($(ENV_NAME))"
+	@echo "Environment created from environment.yml and kernel installed."
 
 ###
 # 04. Project, Directory, and File Structure
@@ -453,6 +452,12 @@ doc-myst-site-init-toc:
 
 doc-myst-site-init-ghpages:
 	myst init --gh-pages
+
+doc-myst-build:
+	myst build
+
+doc-myst-build-html:
+	myst build --html
 
 
 ###
