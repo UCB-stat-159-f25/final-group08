@@ -10,13 +10,9 @@ dependencies:
   - jupyterlab
   - matplotlib
   - mlcroissant
-  - nbconvert
   - numpy
   - pandas
-  - pandoc
-  - playwright
   - scikit-learn
   - scipy
   - seaborn
-  - texlive-core
 prefix: /home/jovyan/.local/share/envs/final-group08
