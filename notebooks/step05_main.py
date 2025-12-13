@@ -8,7 +8,7 @@
 #       format_version: '1.3'
 #       jupytext_version: 1.18.1
 #   kernelspec:
-#     display_name: IPython - (final-group08)
+#     display_name: IPython - final-group08
 #     language: python
 #     name: final-group08
 # ---
@@ -24,7 +24,25 @@
 #   - name: Jane Doe
 #     affiliations:
 #       - University of California, Berkeley
-#       - STAT 159/259: Reproducible and Collaborative Statistical Data Science 
+#       - STAT 159/259 Reproducible and Collaborative Statistical Data Science
+#     orcid: 0000-0000-0000-0000
+#     email: jdoe@berkeley.edu
+#   - name: Master Yoda
+#     affiliations:
+#       - University of California, Berkeley
+#       - STAT 159/259 Reproducible and Collaborative Statistical Data Science
+#     orcid: 0000-0000-0000-0000
+#     email: jdoe@berkeley.edu
+#   - name: Lieutenat Uhura
+#     affiliations:
+#       - University of California, Berkeley
+#       - STAT 159/259 Reproducible and Collaborative Statistical Data Science
+#     orcid: 0000-0000-0000-0000
+#     email: jdoe@berkeley.edu
+#   - name: Lieutenat Uhura
+#     affiliations:
+#       - University of California, Berkeley
+#       - STAT 159/259 Reproducible and Collaborative Statistical Data Science
 #     orcid: 0000-0000-0000-0000
 #     email: jdoe@berkeley.edu
 # license: TBD
@@ -35,7 +53,20 @@
 
 # %% [markdown]
 # # Step 05: Reporting
-#
+
+# %%
+import src.step00_utils as step00_utils
+
+# %%
+step00_utils.DIR_PROJECT_CURRENT
+
+# %%
+step00_utils.DIR_PROJECT_HOME
+
+# %%
+step00_utils.DIR_DATA
+
+# %% [markdown]
 # ## Spotify Churn Analysis and Inference
 
 # %% [markdown]

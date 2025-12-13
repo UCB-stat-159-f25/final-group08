@@ -7,6 +7,10 @@
 #       format_name: percent
 #       format_version: '1.3'
 #       jupytext_version: 1.18.1
+#   kernelspec:
+#     display_name: IPython - final-group08
+#     language: python
+#     name: final-group08
 # ---
 
 # %% [markdown]
@@ -32,14 +36,26 @@
 # %% [markdown]
 # # Step 03: Featurization, Vectorization, and Pre-Modeling
 
+# %%
+import src.step00_utils as step00_utils
+
+# %%
+step00_utils.DIR_PROJECT_CURRENT
+
+# %%
+step00_utils.DIR_PROJECT_HOME
+
+# %%
+step00_utils.DIR_DATA
+
 # %% [markdown]
 # Q: ...
 # - A: ...
 
-# %% vscode={"languageId": "plaintext"}
+# %%
 
 # %% [markdown]
 # Q: ...
 # - A: ...
 
-# %% vscode={"languageId": "plaintext"}
+# %%

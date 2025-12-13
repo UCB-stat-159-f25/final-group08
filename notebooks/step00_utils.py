@@ -8,7 +8,7 @@
 #       format_version: '1.3'
 #       jupytext_version: 1.18.1
 #   kernelspec:
-#     display_name: IPython - (final-group08)
+#     display_name: IPython - final-group08
 #     language: python
 #     name: final-group08
 # ---
@@ -36,5 +36,18 @@
 
 # %% [markdown]
 # # Step 00: Utilities
+
+# %%
+import src.step00_utils as step00_utils
+
+
+# %%
+step00_utils.DIR_PROJECT_CURRENT
+
+# %%
+step00_utils.DIR_PROJECT_HOME
+
+# %%
+step00_utils.DIR_DATA
 
 # %%
