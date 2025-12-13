@@ -1,0 +1,48 @@
+# ---
+# jupyter:
+#   jupytext:
+#     formats: ipynb:percent,py:percent
+#     text_representation:
+#       extension: .py
+#       format_name: percent
+#       format_version: '1.3'
+#       jupytext_version: 1.18.1
+#   kernelspec:
+#     display_name: IPython - (final-group08)
+#     language: python
+#     name: final-group08
+# ---
+
+# %% [markdown]
+# ---
+# title: Step 02 - Exploratory Data Analysis (EDA) 
+# subject: Churn Analysis
+# subtitle: Step 02 - Exploratory Data Analysis (EDA) - Churn Analysis
+# short_title: Exploratory Data Analysis (EDA)
+# authors:
+#   - name: Jane Doe
+#     affiliations:
+#       - University of California, Berkeley
+#       - STAT 159/259: Reproducible and Collaborative Statistical Data Science 
+#     orcid: 0000-0000-0000-0000
+#     email: jdoe@berkeley.edu
+# license: TBD
+# keywords: exploratory, data, analysis, eda, churn, spotify
+#
+# abstract: What is the coverage of the exploratory data analysis? What did we find?
+# ---
+
+# %% [markdown]
+# # Step 02: Exploratory Data Analysis (EDA)
+
+# %% [markdown]
+# Q: ...
+# - A: ...
+
+# %%
+
+# %% [markdown]
+# Q: ...
+# - A: ...
+
+# %%
