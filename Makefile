@@ -29,7 +29,7 @@ CONDA_DEACTIVATE := $(CONDA_INIT) && conda deactivate
 
 .PHONY: env-source-conda env-create-from-scratch env-create-from-yml \
         env-activate env-install-basics env-export-from-history \
-        env-deactivate env-remove
+        env-deactivate env-list env-list-packages env-remove
 
 env-source-conda:
 	$(CONDA_INIT)
@@ -91,6 +91,9 @@ env-deactivate:
 # env-list: env-source-conda
 env-list:
 	conda env list
+
+env-list-packages:
+	conda list
 
 # env-remove: env-source-conda
 env-remove:
@@ -155,12 +158,21 @@ all-env-create-from-scratch-once:
 # # all-env-create-from-yml: $(CONDA_INIT) env-create-from-yml env-activate ker-create
 # 	@echo "Environment created from environment.yml and kernel installed."
 
+###
+# GOTO - Appendix below: rename from all-env-create-from-yml to env, as required
+###
 all-env-create-from-yml:
-	$(CONDA_INIT); \
+# 	$(CONDA_INIT); \
 	conda env create -f environment.yml; \
 	conda activate $(ENV_NAME); \
+
+	$(CONDA_INIT); \
+	conda env create -f environment.yml -n $(ENV_NAME) || conda env update -f environment.yml -n $(ENV_NAME); \
+	conda activate $(ENV_NAME); \
+	
 	pip install -e .
 	python -m ipykernel install --user --name $(ENV_NAME) --display-name "IPython - $(ENV_NAME)"
+	
 	@echo "Environment created from environment.yml and kernel installed."
 
 ############
@@ -415,7 +427,8 @@ nb-pair-all-ipynb: nb-pair-step00-ipynb \
 
 .PHONY: doc-ai-documentation doc-contribution-statement \
 	doc-license \
-	doc-myst-site-init doc-myst-site-init-toc doc-myst-site-init-ghpages
+	doc-myst-site-init doc-myst-site-init-toc doc-myst-site-init-ghpages \
+	doc-nbconvert
 
 doc-ai-documentation:
 	cat <<'EOF' > ai_documentation.txt
@@ -524,22 +537,57 @@ doc-myst-build-html:
 doc-pyproject-toml:
 	touch pyproject.toml
 
+doc-nbconvert-step00-utils-to-pdf:
+	jupyter nbconvert --to pdf --output-dir pdf_builds/step00_utils notebooks/step00_utils.ipynb
+
+doc-nbconvert-step01-data-to-pdf:
+	jupyter nbconvert --to pdf --output-dir pdf_builds/step01_data notebooks/step01_data.ipynb
+
+doc-nbconvert-step02-eda-to-pdf:
+	jupyter nbconvert --to pdf --output-dir pdf_builds/step02_eda notebooks/step02_eda.ipynb
+
+doc-nbconvert-step03-features-to-pdf:
+	jupyter nbconvert --to pdf --output-dir pdf_builds/step03_features notebooks/step03_features.ipynb
+
+doc-nbconvert-step04-modeling-to-pdf:
+	jupyter nbconvert --to pdf --output-dir pdf_builds/step04_modeling notebooks/step04_modeling.ipynb
+
+doc-nbconvert-step05-main-to-pdf:
+	jupyter nbconvert --to pdf --output-dir pdf_builds/step05_main notebooks/step05_main.ipynb
+
+###
+# TODO rename from doc-nbconvert-all-to-pdfs to all, as required
+###
+# all:
+doc-nbconvert-all-to-pdfs: doc-nbconvert-step00-utils-to-pdf \
+	doc-nbconvert-step01-data-to-pdf \
+	doc-nbconvert-step02_eda-to-pdf \
+	doc-nbconvert-step03-features-to-pdf \
+	doc-nbconvert-step04-modeling-to-pdf \
+	doc-nbconvert-step05-main-to-pdf
+
+
 ############
 # Appendix Aa. General E2E - Phony and Default Target
 ############
 
-.PHONY: all env
-# (Intentionally empty for future additions)
+.PHONY: all env test
 
-all:
-	@echo "TODO - Create an end-to-end pipeline — All tasks complete!"
+all: doc-nbconvert-all-to-pdfs
+	@echo "Created end-to-end all pdf documents — All tasks complete!"
 
-env:
-	@echo "TODO - Create an end-to-end env pipeline — All tasks complete!"
+env: all-env-create-from-yml
+	@echo "Created end-to-end environment — All tasks complete!"
+
+test:
+	@echo "TODO - Created end-to-end environment — All tasks complete!"
+
 
 ############
 # Appendix Zz. Help
 ############
+
+# TODO: Update!!!!!
 
 help:
 	@echo "01. Environment targets:"
