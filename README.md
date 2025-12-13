@@ -92,7 +92,6 @@ A good README should be short but also provide all the useful information to hel
 │   └── ./data/02_vectorized
 ├── ./docs
 │   └── ./docs/__init__.py
-├── ./environment-BASIC.yml
 ├── ./environment.yml
 ├── ./fig_builds
 │   ├── ./fig_builds/step00_utils
@@ -101,28 +100,50 @@ A good README should be short but also provide all the useful information to hel
 │   ├── ./fig_builds/step03_features
 │   ├── ./fig_builds/step04_modeling
 │   └── ./fig_builds/step05_main
+├── ./final_group08.egg-info
+│   ├── ./final_group08.egg-info/dependency_links.txt
+│   ├── ./final_group08.egg-info/PKG-INFO
+│   ├── ./final_group08.egg-info/requires.txt
+│   ├── ./final_group08.egg-info/SOURCES.txt
+│   └── ./final_group08.egg-info/top_level.txt
 ├── ./LICENSE
 ├── ./Makefile
-├── ./Makefile-BACKUP
-├── ./Makefile-BACKUP-01
 ├── ./misc
-│   └── ./misc/__init__.py
+│   ├── ./misc/environment-BASIC.yml
+│   ├── ./misc/__init__.py
+│   ├── ./misc/Makefile-BACKUP
+│   └── ./misc/Makefile-BACKUP-01
 ├── ./myst.yml
 ├── ./notebooks
 │   ├── ./notebooks/__init__.py
 │   ├── ./notebooks/step00_utils.ipynb
+│   ├── ./notebooks/step00_utils.py
 │   ├── ./notebooks/step01_data.ipynb
+│   ├── ./notebooks/step01_data.py
 │   ├── ./notebooks/step02_eda.ipynb
+│   ├── ./notebooks/step02_eda.py
 │   ├── ./notebooks/step03_features.ipynb
+│   ├── ./notebooks/step03_features.py
 │   ├── ./notebooks/step04_modeling.ipynb
-│   └── ./notebooks/step05_main.ipynb
+│   ├── ./notebooks/step04_modeling.py
+│   ├── ./notebooks/step05_main.ipynb
+│   └── ./notebooks/step05_main.py
 ├── ./pdf_builds
+│   ├── ./pdf_builds/step00_utils
+│   ├── ./pdf_builds/step01_data
+│   ├── ./pdf_builds/step02_eda
+│   ├── ./pdf_builds/step03_features
+│   ├── ./pdf_builds/step04_modeling
+│   └── ./pdf_builds/step05_main
 ├── ./postBuild
 ├── ./preBuild
 ├── ./project-description.md
+├── ./pyproject.toml
+├── ./README-FYEO.md
 ├── ./README.md
 ├── ./src
 │   ├── ./src/__init__.py
+│   ├── ./src/__pycache__
 │   ├── ./src/step00_utils.py
 │   ├── ./src/step01_data.py
 │   ├── ./src/step02_eda.py
@@ -137,6 +158,8 @@ A good README should be short but also provide all the useful information to hel
     ├── ./tests/test_step03_features.py
     ├── ./tests/test_step04_modeling.py
     └── ./tests/test_step05_main.py
+
+31 directories, 49 files
 ```
 
 ## How to Test the Project
