@@ -26,7 +26,6 @@ dependencies:
   - nbconvert
   - pandoc
   - texlive-core
-  - quarto-cli
 
   # ---------------------------------------------------------------------------
   # 02. Data I/O / Reproducibility / Validation
