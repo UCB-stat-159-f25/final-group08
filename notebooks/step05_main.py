@@ -19,6 +19,7 @@
 # subject: Churn Analysis
 # subtitle: Step 03 - Reporting - Churn Analysis
 # short_title: Reporting
+# date: 2025-12-17
 # authors:
 #   - name: Jane Doe
 #     affiliations:
@@ -36,6 +37,19 @@
 # # Step 05: Reporting
 #
 # ## Spotify Churn Analysis and Inference
+
+# %% [markdown]
+# **Abstract** – A complete summary of your paper.
+#
+# **Related Work** – Discussion of other papers related to your own.
+#
+# **[Optional] Background** – Additional information needed to understand your work.
+#
+# **Methods/Approach** – A thorough description of what you did.
+#
+# **Evaluation/Analysis** – Discussion of your experiments and visualizations of your results.
+#
+# **Conclusions** – Summary of the key takeaways, as well as a discussion of limitations and areas for future work.
 
 # %% [markdown]
 # Q: What is the application domain or the field analysis/research? 
@@ -57,19 +71,3 @@
 # - A: It is important to... 
 
 # %%
-
-# %% [markdown]
-# **Abstract** – A complete summary of your paper.
-#
-# **Related Work** – Discussion of other papers related to your own.
-#
-# **[Optional] Background** – Additional information needed to understand your work.
-#
-# **Methods/Approach** – A thorough description of what you did.
-#
-# **Evaluation/Analysis** – Discussion of your experiments and visualizations of your results.
-#
-# **Conclusions** – Summary of the key takeaways, as well as a discussion of limitations and areas for future work.
-
-# %% [markdown]
-#

@@ -19,6 +19,7 @@
 # subject: Churn Analysis
 # subtitle: Step 03 - Modeling - Churn Analysis
 # short_title: Modeling
+# date: 2025-12-17
 # authors:
 #   - name: Jane Doe
 #     affiliations:

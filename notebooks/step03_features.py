@@ -15,6 +15,7 @@
 # subject: Churn Analysis
 # subtitle: Step 03 - Featurization, Vectorization, and Pre-Modeling - Churn Analysis
 # short_title: Featurization, Vectorization, and Pre-Modeling
+# date: 2025-12-17
 # authors:
 #   - name: Jane Doe
 #     affiliations:

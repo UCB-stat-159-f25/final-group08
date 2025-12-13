@@ -19,6 +19,7 @@
 # subject: Churn Analysis
 # subtitle: Step 02 - Exploratory Data Analysis (EDA) - Churn Analysis
 # short_title: Exploratory Data Analysis (EDA)
+# date: 2025-12-17
 # authors:
 #   - name: Jane Doe
 #     affiliations:

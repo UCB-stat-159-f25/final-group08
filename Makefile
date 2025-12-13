@@ -345,7 +345,8 @@ all-dir-remove: dir-delete-data dir-delete-docs dir-delete-misc dir-delete-noteb
 # 05. Notebook Management with JupyText
 ############
 
-.PHONY: nb-pair-step01-py nb-pair-step01-ipynb \
+.PHONY:  nb-pair-step00-py nb-pair-step00-ipynb \
+	nb-pair-step01-py nb-pair-step01-ipynb \
 	nb-pair-step02-py nb-pair-step02-ipynb \
 	nb-pair-step03-py nb-pair-step03-ipynb \
 	nb-pair-step04-py nb-pair-step04-ipynb \
@@ -353,6 +354,12 @@ all-dir-remove: dir-delete-data dir-delete-docs dir-delete-misc dir-delete-noteb
 	nb-pair-all-py nb-pair-all-ipynb 
 
 DIR_NOTEBOOKS = notebooks
+
+nb-pair-step00-py:
+	jupytext --set-formats py:percent,ipynb $(DIR_NOTEBOOKS)/step00_utils.py
+
+nb-pair-step00-ipynb:
+	jupytext --set-formats ipynb:percent,py $(DIR_NOTEBOOKS)/step00_utils.ipynb
 
 nb-pair-step01-py:
 	jupytext --set-formats py:percent,ipynb $(DIR_NOTEBOOKS)/step01_data.py
@@ -384,14 +391,16 @@ nb-pair-step05-py:
 nb-pair-step05-ipynb:
 	jupytext --set-formats ipynb:percent,py $(DIR_NOTEBOOKS)/step05_main.ipynb
 
-nb-pair-all-py: nb-pair-step01-py \
+nb-pair-all-py: nb-pair-step00-py \
+	nb-pair-step01-py \
 	nb-pair-step02-py \
 	nb-pair-step03-py \
 	nb-pair-step04-py \
 	nb-pair-step05-py
 # 	jupytext --set-formats py:percent,ipynb $(DIR_NOTEBOOKS)/step0{0..5}_*.py
 
-nb-pair-all-ipynb: nb-pair-step01-ipynb \
+nb-pair-all-ipynb: nb-pair-step00-ipynb \
+	nb-pair-step01-ipynb \
 	nb-pair-step02-ipynb \
 	nb-pair-step03-ipynb \
 	nb-pair-step04-ipynb \

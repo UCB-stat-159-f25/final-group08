@@ -1,25 +1,17 @@
-# Final Project for Group 08 aka The Wrecking Crew
+# Final Project for Group 08 aka Da' Wrecking Crew
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/UCB-stat-159-f25/final-group08/main)
 
-**Group Members**
 
-- Jocelyn Perez
-- Claire Kaoru Shimazaki
-- Colby Zhang
-- Olorundamilola Kazeem
+## Group Members
+
+**Jocelyn Perez** • **Claire Kaoru Shimazaki** • **Colby Zhang** • **Olorundamilola Kazeem**
 
 [Group Resources - Internal Use Only](https://drive.google.com/drive/folders/1Za-QzHQQBWf5ob-vrTWZSwD2isSU4_oy?usp=sharing)
 
 ---
 
 ## Table of Contents
-<!-- 
-- [Final Project for Group 08 aka The Wrecking Crew](#final-project-for-group-08-aka-the-wrecking-crew)
-  - [Group Members](#group-members)
-  - [Binder Link](#binder-link)
-  - [Internal Group Resources](#internal-group-resources) 
--->
 
 - [About the Project](#about-the-project)
   - [Background](#background)
