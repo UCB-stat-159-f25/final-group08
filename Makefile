@@ -48,10 +48,9 @@ env-activate:
 	@echo "    conda activate $(ENV_NAME)"
 	@echo "    pip install -e ."
 # 	conda activate $(ENV_NAME)
-	$(CONDA_ACTIVATE)
-# 	TODO 
+# 	$(CONDA_ACTIVATE)
 # 	pip install -e .
-# 	$(CONDA_ACTIVATE) && pip install -e .
+	$(CONDA_ACTIVATE) && pip install -e .
 
 # env-install-basics: env-source-conda
 env-install-basics:
@@ -60,6 +59,7 @@ env-install-basics:
 	ipykernel \
 	jupyterlab \
 	jupyter-ai \
+	jupytext \
 	nbconvert \
 	pandoc \
 	texlive-core \
@@ -105,7 +105,7 @@ env-remove:
 KERNEL := $(ENV_NAME)
 
 ker-create:
-	python -m ipykernel install --user --name $(KERNEL) --display-name "IPython - ($(KERNEL))"
+	python -m ipykernel install --user --name $(KERNEL) --display-name "IPython - $(KERNEL)"
 
 ker-list:
 	jupyter kernelspec list
@@ -145,7 +145,7 @@ all-env-create-from-scratch-once:
 		scipy \
 		mlcroissant; \
 	conda env export --from-history > environment.yml; \
-	python -m ipykernel install --user --name $(ENV_NAME) --display-name "IPython - ($(ENV_NAME))"; \
+	python -m ipykernel install --user --name $(ENV_NAME) --display-name "IPython - $(ENV_NAME)"; \
 	conda deactivate; \
 	conda remove -n $(ENV_NAME) --all -y; \	
 	@echo "One-time bootstrap complete. environment.yml written."
@@ -159,7 +159,8 @@ all-env-create-from-yml:
 	$(CONDA_INIT); \
 	conda env create -f environment.yml; \
 	conda activate $(ENV_NAME); \
-	python -m ipykernel install --user --name $(ENV_NAME) --display-name "IPython - ($(ENV_NAME))"
+	pip install -e .
+	python -m ipykernel install --user --name $(ENV_NAME) --display-name "IPython - $(ENV_NAME)"
 	@echo "Environment created from environment.yml and kernel installed."
 
 ############
@@ -280,7 +281,7 @@ dir-delete-fig-builds:
 	@echo "Deleted the fig_builds directory and files."
 
 dir-create-pdf-builds:
-	mkdir -p pdf_builds
+	mkdir -p pdf_builds \
 		pdf_builds/step00_utils \
 		pdf_builds/step01_data \
 		pdf_builds/step02_eda \
@@ -288,7 +289,7 @@ dir-create-pdf-builds:
 		pdf_builds/step04_modeling \
 		pdf_builds/step05_main
 
-	touch pdf_builds/.gitkeep
+	touch pdf_builds/.gitkeep \
 		pdf_builds/step00_utils/.gitkeep \
 		pdf_builds/step01_data/.gitkeep \
 		pdf_builds/step02_eda/.gitkeep \
@@ -520,6 +521,8 @@ doc-myst-build:
 doc-myst-build-html:
 	myst build --html
 
+doc-pyproject-toml:
+	touch pyproject.toml
 
 ############
 # Appendix Aa. General E2E - Phony and Default Target

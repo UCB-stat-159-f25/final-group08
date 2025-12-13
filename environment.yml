@@ -20,4 +20,7 @@ dependencies:
   - scipy
   - seaborn
   - texlive-core
+  - pip
+  - pip:
+      - -e .
 prefix: /home/jovyan/.local/share/envs/final-group08
