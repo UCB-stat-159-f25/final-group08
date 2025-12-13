@@ -1,26 +1,92 @@
+# environment.yml
+# Grouped + updated for Spotify Churn Analysis (STAT 159/259)
 name: final-group08
+
 channels:
   - conda-forge
   - nodefaults
+  # NOTE: keep defaults only if you truly need it; conda-forge is usually enough
   - defaults
+
 dependencies:
+  # ---------------------------------------------------------------------------
+  # 00. Core
+  # ---------------------------------------------------------------------------
   - python=3.12
-  - ipykernel
-  - jupyter-ai
+  - pip
+
+  # ---------------------------------------------------------------------------
+  # 01. Jupyter / Authoring / Export
+  # ---------------------------------------------------------------------------
   - jupyterlab
+  - ipykernel
+  - ipywidgets
+  - jupyter-ai
   - jupytext
-  - matplotlib
-  - mlcroissant
   - nbconvert
+  - pandoc
+  - texlive-core
+  - quarto-cli
+
+  # ---------------------------------------------------------------------------
+  # 02. Data I/O / Reproducibility / Validation
+  # ---------------------------------------------------------------------------
   - numpy
   - pandas
-  - pandoc
-  - playwright
-  - scikit-learn
   - scipy
+  - pyyaml
+  - python-dotenv
+  - tqdm
+  - joblib
+  - pandera
+  - pyjanitor
+  - mlcroissant
+
+  # ---------------------------------------------------------------------------
+  # 03. EDA / Visualization
+  # ---------------------------------------------------------------------------
+  - matplotlib
   - seaborn
-  - texlive-core
-  - pip
+  - missingno
+  - plotly
+
+  # ---------------------------------------------------------------------------
+  # 04. Modeling (Core)
+  # ---------------------------------------------------------------------------
+  - scikit-learn
+  - imbalanced-learn
+  - category_encoders
+  - xgboost
+  - lightgbm
+
+  # ---------------------------------------------------------------------------
+  # 05. Explainability / Diagnostics
+  # ---------------------------------------------------------------------------
+  - shap
+  - yellowbrick
+
+  # ---------------------------------------------------------------------------
+  # 06. Testing / Dev Tools
+  # ---------------------------------------------------------------------------
+  - pytest
+  - black
+  - isort
+  - flake8
+  - nbqa
+
+  # ---------------------------------------------------------------------------
+  # 07. Web / Automation (if you truly need browser automation)
+  # ---------------------------------------------------------------------------
+  - playwright
+
+  # ---------------------------------------------------------------------------
+  # 08. pip extras (project install)
+  # ---------------------------------------------------------------------------
   - pip:
       - -e .
-prefix: /home/jovyan/.local/share/envs/final-group08
+
+###
+# Removed prefix: (better for sharing + Binder/CI friendliness)
+###
+
+# prefix: /home/jovyan/.local/share/envs/final-group08
