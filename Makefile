@@ -9,9 +9,10 @@ SHELL = /bin/bash
 
 
 
-###
-# 01. Configuration
-###
+############
+# 00. Configuration
+############
+
 ENV_NAME         := final-group08
 PYTHON_VERSION   := 3.12
 CONDA_BASE       ?= /srv/conda
@@ -22,9 +23,9 @@ CONDA_ACTIVATE 	 := $(CONDA_INIT) && conda activate $(ENV_NAME)
 CONDA_DEACTIVATE := $(CONDA_INIT) && conda deactivate
 
 
-###
+############
 # 01. Environment Management - Primitives
-###
+############
 
 .PHONY: env-source-conda env-create-from-scratch env-create-from-yml \
         env-activate env-install-basics env-export-from-history \
@@ -95,9 +96,9 @@ env-list:
 env-remove:
 	conda remove -n $(ENV_NAME) -y --all
 
-###
+############
 # 02. Environment Managenent - Kernel Primitives
-###
+############
 
 .PHONY: ker-create ker-list ker-remove
 
@@ -112,9 +113,9 @@ ker-list:
 ker-remove:
 	jupyter kernelspec uninstall -y $(KERNEL)
 
-###
+############
 # 03. Environment Management - Composites - All Directives
-###
+############
 
 .PHONY: all-env-create-from-scratch-once all-env-create-from-yml
 
@@ -131,6 +132,7 @@ all-env-create-from-scratch-once:
 		ipykernel \
 		jupyterlab \
 		jupyter-ai \
+		jupytext \
 		nbconvert \
 		pandoc \
 		texlive-core \
@@ -160,9 +162,9 @@ all-env-create-from-yml:
 	python -m ipykernel install --user --name $(ENV_NAME) --display-name "IPython - ($(ENV_NAME))"
 	@echo "Environment created from environment.yml and kernel installed."
 
-###
+############
 # 04. Project, Directory, and File Structure
-###
+############
 
 .PHONY: dir-create-binder dir-delete-binder \
 	dir-create-data dir-delete-data \
@@ -339,17 +341,67 @@ all-dir-create: dir-create-data dir-create-docs dir-create-misc dir-create-noteb
 all-dir-remove: dir-delete-data dir-delete-docs dir-delete-misc dir-delete-notebooks dir-delete-fig-builds dir-delete-pdf-builds dir-delete-src dir-delete-tests
 	@echo "Removed all of the required project directories."
 
-###
+############
 # 05. Notebook Management with JupyText
-###
+############
 
-# (Intentionally empty for future additions)
-# TODO — Consolidate this section
+.PHONY: nb-pair-step01-py nb-pair-step01-ipynb \
+	nb-pair-step02-py nb-pair-step02-ipynb \
+	nb-pair-step03-py nb-pair-step03-ipynb \
+	nb-pair-step04-py nb-pair-step04-ipynb \
+	nb-pair-step05-py nb-pair-step05-ipynb \
+	nb-pair-all-py nb-pair-all-ipynb 
+
+DIR_NOTEBOOKS = notebooks
+
+nb-pair-step01-py:
+	jupytext --set-formats py:percent,ipynb $(DIR_NOTEBOOKS)/step01_data.py
+
+nb-pair-step01-ipynb:
+	jupytext --set-formats ipynb:percent,py $(DIR_NOTEBOOKS)/step01_data.ipynb
+
+nb-pair-step02-py:
+	jupytext --set-formats py:percent,ipynb $(DIR_NOTEBOOKS)/step02_eda.py
+
+nb-pair-step02-ipynb:
+	jupytext --set-formats ipynb:percent,py $(DIR_NOTEBOOKS)/step02_eda.ipynb
+
+nb-pair-step03-py:
+	jupytext --set-formats py:percent,ipynb $(DIR_NOTEBOOKS)/step03_features.py
+
+nb-pair-step03-ipynb:
+	jupytext --set-formats ipynb:percent,py $(DIR_NOTEBOOKS)/step03_features.ipynb
+
+nb-pair-step04-py:
+	jupytext --set-formats py:percent,ipynb $(DIR_NOTEBOOKS)/step04_modeling.py
+
+nb-pair-step04-ipynb:
+	jupytext --set-formats ipynb:percent,py $(DIR_NOTEBOOKS)/step04_modeling.ipynb
+
+nb-pair-step05-py:
+	jupytext --set-formats py:percent,ipynb $(DIR_NOTEBOOKS)/step05_main.py
+
+nb-pair-step05-ipynb:
+	jupytext --set-formats ipynb:percent,py $(DIR_NOTEBOOKS)/step05_main.ipynb
+
+nb-pair-all-py: nb-pair-step01-py \
+	nb-pair-step02-py \
+	nb-pair-step03-py \
+	nb-pair-step04-py \
+	nb-pair-step05-py
+# 	jupytext --set-formats py:percent,ipynb $(DIR_NOTEBOOKS)/step0{0..5}_*.py
+
+nb-pair-all-ipynb: nb-pair-step01-ipynb \
+	nb-pair-step02-ipynb \
+	nb-pair-step03-ipynb \
+	nb-pair-step04-ipynb \
+	nb-pair-step05-ipynb
+# 	jupytext --set-formats ipynb:percent,py $(DIR_NOTEBOOKS)/step0{0..5}_*.ipynb
 
 
-###
+############
 # 06. Project Documents and Documentation
-###
+############
 
 .PHONY: doc-ai-documentation doc-contribution-statement \
 	doc-license \
@@ -460,21 +512,22 @@ doc-myst-build-html:
 	myst build --html
 
 
-###
+############
 # Appendix Aa. General E2E - Phony and Default Target
-###
+############
 
+.PHONY: all env
 # (Intentionally empty for future additions)
 
 all:
 	@echo "TODO - Create an end-to-end pipeline — All tasks complete!"
 
-.PHONY: all
+env:
+	@echo "TODO - Create an end-to-end env pipeline — All tasks complete!"
 
-
-###
+############
 # Appendix Zz. Help
-###
+############
 
 help:
 	@echo "01. Environment targets:"
