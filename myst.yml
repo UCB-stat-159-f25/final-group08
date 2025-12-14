@@ -22,9 +22,14 @@ project:
         - file: notebooks/step04_modeling.ipynb
         - file: notebooks/step05_main.ipynb
   license: BSD-3-Clause
+  bibliography:
+    - myst.datasets.bib
+    - myst.doi.bib
+    # - references.bib
 
 site:
   template: book-theme
+
   options:
   #   favicon: favicon.ico
   #   logo: site_logo.png
