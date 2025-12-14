@@ -20,8 +20,9 @@
   - [04. The Modeling i.e. Analysis and Modeling](#04-the-modeling-ie-analysis-and-modeling)
   - [05. The Reporting i.e. Consolidation](#05-the-reporting-ie-consolidation)
 - [The Project Structure](#the-project-structure)
-- [How to Test the Project](#how-to-test-the-project)
-- [How to Run the Project](#how-to-run-the-project)
+  - [01. How to Run the Project](#how-to-run-the-project)
+  - [02. How to Test the Project](#how-to-test-the-project)
+  - [03. How to Generate PDFs of the Project](#how-to-generate-pdfs-of-the-project)
 - [Misc.](#misc)
 
 ---
@@ -38,7 +39,6 @@ Include all relevant information about how to run the analysis, including instal
 
 A good README should be short but also provide all the useful information to help the user to start running the analysis.
 ```
-
 
 ### 01. The Raw Dataset
 
@@ -167,20 +167,29 @@ A good README should be short but also provide all the useful information to hel
 32 directories, 54 files
 ```
 
-## How to Test the Project
+## 01. How to Run the Project
 
-...
+- To create and activate the project
 
 ```bash
-
+❯ make env
+❯ conda activate final-group08
 ```
 
-## How to Run the Project
+## 02. How to Test the Project
 
-...
+- To be added/implemented
 
 ```bash
+❯ make test
+```
 
+## 03. How to Generate PDFs of the Project
+
+- To create and activate the project
+
+```bash
+❯ make all
 ```
 
 ## Misc.
