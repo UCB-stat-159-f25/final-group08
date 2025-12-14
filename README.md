@@ -85,6 +85,7 @@ A good README should be short but also provide all the useful information to hel
 │   ├── ./_build/logs
 │   ├── ./_build/site
 │   └── ./_build/templates
+├── ./CITATION.cff
 ├── ./contribution_statement.md
 ├── ./data
 │   ├── ./data/00_raw
@@ -163,7 +164,7 @@ A good README should be short but also provide all the useful information to hel
     ├── ./tests/test_step04_modeling.py
     └── ./tests/test_step05_main.py
 
-32 directories, 53 files
+32 directories, 54 files
 ```
 
 ## How to Test the Project
