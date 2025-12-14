@@ -80,6 +80,7 @@ A good README should be short but also provide all the useful information to hel
 .
 ├── ./ai_documentation.txt
 ├── ./_build
+│   ├── ./_build/cache
 │   ├── ./_build/html
 │   ├── ./_build/logs
 │   ├── ./_build/site
@@ -108,10 +109,15 @@ A good README should be short but also provide all the useful information to hel
 ├── ./LICENSE
 ├── ./Makefile
 ├── ./misc
+│   ├── ./misc/environment-BASIC-01.yml
 │   ├── ./misc/environment-BASIC.yml
 │   ├── ./misc/__init__.py
 │   ├── ./misc/Makefile-BACKUP
-│   └── ./misc/Makefile-BACKUP-01
+│   ├── ./misc/Makefile-BACKUP-01
+│   └── ./misc/README-FYEO.md
+├── ./myst.datasets.bib
+├── ./myst.doi.bib
+├── ./myst.references.bib
 ├── ./myst.yml
 ├── ./notebooks
 │   ├── ./notebooks/__init__.py
@@ -138,7 +144,6 @@ A good README should be short but also provide all the useful information to hel
 ├── ./preBuild
 ├── ./project-description.md
 ├── ./pyproject.toml
-├── ./README-FYEO.md
 ├── ./README.md
 ├── ./src
 │   ├── ./src/__init__.py
@@ -158,7 +163,7 @@ A good README should be short but also provide all the useful information to hel
     ├── ./tests/test_step04_modeling.py
     └── ./tests/test_step05_main.py
 
-31 directories, 49 files
+32 directories, 53 files
 ```
 
 ## How to Test the Project
