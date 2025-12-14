@@ -14,7 +14,7 @@
 
 - [About the Project](#about-the-project)
   - [Background](#background)
-  - [01. The Dataset](#01-the-dataset)
+  - [01. The Raw Dataset](#01-the-dataset)
   - [02. The Exploratory Data Analysis](#02-the-exploratory-data-analysis)
   - [03. The Features i.e. Data Transformation and Vectorization](#03-the-features-ie-data-transformation-and-vectorization)
   - [04. The Modeling i.e. Analysis and Modeling](#04-the-modeling-ie-analysis-and-modeling)
@@ -40,7 +40,7 @@ A good README should be short but also provide all the useful information to hel
 ```
 
 
-### 01. The Dataset
+### 01. The Raw Dataset
 
 ```bash
 
