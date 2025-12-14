@@ -21,9 +21,11 @@ project:
         - file: notebooks/step03_features.ipynb
         - file: notebooks/step04_modeling.ipynb
         - file: notebooks/step05_main.ipynb
-    
+  license: BSD-3-Clause
+
 site:
   template: book-theme
-  # options:
+  options:
   #   favicon: favicon.ico
   #   logo: site_logo.png
+    numbered_references: true

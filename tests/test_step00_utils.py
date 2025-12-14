@@ -5,6 +5,9 @@
 ###
 import src.step00_utils as step00_utils
 
+import pytest
+import pandera
+
 ###
 # ...
 ###

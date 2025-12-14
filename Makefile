@@ -534,6 +534,9 @@ doc-myst-build:
 doc-myst-build-html:
 	myst build --html
 
+doc-myst-build-bibtex:
+	myst build --doi-bib
+
 doc-pyproject-toml:
 	touch pyproject.toml
 
