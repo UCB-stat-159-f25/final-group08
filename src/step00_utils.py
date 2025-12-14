@@ -7,7 +7,7 @@ import pathlib as pl
 
 
 ###
-# Filepaths
+# Filepaths and Files 
 ###
 # DIR_PROJECT_HOME                   = pl.Path("..")
 DIR_PROJECT_HOME                   = pl.Path(".").resolve().parent
@@ -36,6 +36,8 @@ DIR_OUTPUTS_PDF_BUILDS_03_FEATURES = DIR_OUTPUTS_PDF_BUILDS / "step03_features"
 DIR_OUTPUTS_PDF_BUILDS_04_MODELING = DIR_OUTPUTS_PDF_BUILDS / "step04_modeling"
 DIR_OUTPUTS_PDF_BUILDS_05_MAIN     = DIR_OUTPUTS_PDF_BUILDS / "step05_main"
 
+
+FILE_SPOTIFY_CHURN_DATASET_CSV     = "spotify_churn_dataset.csv"
 
 ##########
 # TBDs

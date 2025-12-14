@@ -1,7 +1,6 @@
 # Final Project for Group 08 aka Da' Wrecking Crew
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/UCB-stat-159-f25/final-group08/main)
-
+<!-- [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/UCB-stat-159-f25/final-group08/main?urlpath=%2Fdoc%2Ftree%2Fnotebooks) -->
 
 ## Group Members
 
