@@ -23,7 +23,7 @@
   - [01. How to Run the Project](#how-to-run-the-project)
   - [02. How to Test the Project](#how-to-test-the-project)
   - [03. How to Generate PDFs of the Project](#how-to-generate-pdfs-of-the-project)
-- [Misc.](#misc)
+  - [04. How to Get Help for the Project](#04-how-to-get-help-for-the-project)
 
 ---
 
