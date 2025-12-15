@@ -220,10 +220,45 @@ make env || make env && conda activate final-group08
 ❯ make all
 ```
 
-## Misc.
+## 04. How to Get Help for the Project
 
 ```bash
+❯ make help             
 
+USAGE:
+  make <target>
+
+00. Defaults / End-to-end:
+  help                                  - Show this help message
+  all                                   - Build all PDFs via nbconvert (end-to-end)
+  env                                   - Create/update env from environment.yml (end-to-end)
+  test                                  - TODO placeholder
+
+01. Conda environment (primitives):
+  ...
+  env-list                              - List conda envs
+  env-list-packages                     - List packages in current 
+  ...
+
+02. Conda environment (composites):
+  ...
+
+03. Jupyter kernel:
+  ...
+  ker-list                              - List Jupyter kernels
+  ...
+
+04. Project directories:
+  ...
+
+05. Jupytext pairing:
+  ...
+
+06. Docs / site / exports:
+  ...
+
+07. PDF builds (nbconvert):
+  ...
 ```
 
 
