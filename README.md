@@ -169,11 +169,39 @@ A good README should be short but also provide all the useful information to hel
 
 ## 01. How to Run the Project
 
-- To create and activate the project
+- To create and activate the project's environment
 
 ```bash
-❯ make env
-❯ conda activate final-group08
+❯ make env && conda activate final-group08
+```
+
+- To add/remove and update the project's environment
+  - Open the `environment.yml` file
+  - Find the category of the package
+  - Add/remove the pacakge and save
+
+```yaml
+  # ---------------------------------------------------------------------------
+  # 03. EDA / Visualization - BEFORE
+  # ---------------------------------------------------------------------------
+  - matplotlib
+  - seaborn
+  - missingno
+
+
+  # ---------------------------------------------------------------------------
+  # 03. EDA / Visualization - AFTER
+  # ---------------------------------------------------------------------------
+  - matplotlib
+  - seaborn
+  - missingno
+  - plotly 
+```
+
+- Update the project's enviroment
+
+```bash
+make env || make env && conda activate final-group08
 ```
 
 ## 02. How to Test the Project
@@ -186,7 +214,7 @@ A good README should be short but also provide all the useful information to hel
 
 ## 03. How to Generate PDFs of the Project
 
-- To create and activate the project
+- To create pdf files from the notebooks
 
 ```bash
 ❯ make all
