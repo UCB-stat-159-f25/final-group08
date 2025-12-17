@@ -18,7 +18,7 @@
 # title: Main - Reporting
 # subject: Churn Analysis
 # subtitle: Reporting - Churn Analysis
-# short_title: Reproting
+# short_title: Reporting
 # date: 2025-12-17
 #
 # affiliations:
