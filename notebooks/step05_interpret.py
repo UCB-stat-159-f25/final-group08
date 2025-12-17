@@ -7,6 +7,10 @@
 #       format_name: percent
 #       format_version: '1.3'
 #       jupytext_version: 1.18.1
+#   kernelspec:
+#     display_name: Python 3 (ipykernel)
+#     language: python
+#     name: python3
 # ---
 
 # %% [markdown]
@@ -70,3 +74,64 @@
 # abstract: What are the explanations? intrepretations?
 # ---
 #
+
+# %%
+import sys
+from pathlib import Path
+
+PROJECT_ROOT = Path.cwd().parent
+sys.path.insert(0, str(PROJECT_ROOT))
+
+import joblib
+
+DATA_DIR = PROJECT_ROOT / "data" / "02_vectorized"
+train = joblib.load(DATA_DIR / "train.joblib")
+test  = joblib.load(DATA_DIR / "test.joblib")
+
+X_train = train["X"]
+X_test  = test["X"]
+y_test  = test["y"]
+
+X_test.shape
+
+
+# %%
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import GridSearchCV
+from sklearn.metrics import classification_report
+
+rf = RandomForestClassifier(
+    random_state=0,
+    class_weight="balanced"
+)
+
+param_grid = {
+    "n_estimators": [100, 200],
+    "max_depth": [10, None],
+    "min_samples_split": [2, 5],
+}
+
+grid = GridSearchCV(
+    rf,
+    param_grid=param_grid,
+    cv=5,
+    n_jobs=-1,
+    scoring="f1"
+)
+
+grid.fit(X_train, train["y"])
+final_model = grid.best_estimator_
+
+print("Best params:", grid.best_params_)
+print(classification_report(y_test, final_model.predict(X_test)))
+
+
+# %%
+import shap
+import matplotlib.pyplot as plt
+
+explainer = shap.TreeExplainer(final_model)
+shap_values = explainer.shap_values(X_test)
+
+
+# %%
