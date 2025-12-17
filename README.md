@@ -237,7 +237,8 @@ USAGE:
 01. Conda environment (primitives):
   ...
   env-list                              - List conda envs
-  env-list-packages                     - List packages in current 
+  env-list-packages                     - List packages in current
+  env-update                            - Update environment with new packages 
   ...
 
 02. Conda environment (composites):
