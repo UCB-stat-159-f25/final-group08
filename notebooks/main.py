@@ -15,10 +15,10 @@
 
 # %% [markdown]
 # ---
-# title: Step 02 - Exploratory Data Analysis (EDA) 
+# title: Main - Reporting
 # subject: Churn Analysis
-# subtitle: Step 02 - Exploratory Data Analysis (EDA) - Churn Analysis
-# short_title: Exploratory Data Analysis (EDA)
+# subtitle: Reporting - Churn Analysis
+# short_title: Reproting
 # date: 2025-12-17
 #
 # affiliations:
@@ -64,39 +64,20 @@
 # exports:
 #   - format: pdf
 #     template: lapreprint-typst
-#     output: ../pdf_builds/step02_eda/step02_eda_ipynb_to.pdf
+#     output: ../pdf_builds/main/main_ipynb_to.pdf
 #     line_numbers: true
 #
 # license: CC-BY-4.0
 #
-# keywords: exploratory, data, analysis, eda, churn, spotify
+# keywords: main, churn, reprting, spotify
 #
-# abstract: What is the coverage of the exploratory data analysis? What did we find?
+# abstract: Reporting...
 # ---
+#
 
 # %% [markdown]
-# # Step 02: Exploratory Data Analysis (EDA)
+# # Main: Reporting
 
 # %%
 import src.step00_utils as step00_utils
 
-# %%
-step00_utils.DIR_PROJECT_CURRENT
-
-# %%
-step00_utils.DIR_PROJECT_HOME
-
-# %%
-step00_utils.DIR_DATA
-
-# %% [markdown]
-# Q: ...
-# - A: ...
-
-# %%
-
-# %% [markdown]
-# Q: ...
-# - A: ...
-
-# %%

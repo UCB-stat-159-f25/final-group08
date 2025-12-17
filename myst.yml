@@ -15,17 +15,34 @@ project:
     # - file: project-description.md
     - title: Notebooks
       children:
-        - file: notebooks/step00_utils.ipynb
+        # - file: notebooks/step00_utils.ipynb
         - file: notebooks/step01_data.ipynb
         - file: notebooks/step02_eda.ipynb
         - file: notebooks/step03_features.ipynb
         - file: notebooks/step04_modeling.ipynb
-        - file: notebooks/step05_main.ipynb
+        - file: notebooks/step05_interpret.ipynb
+        - file: notebooks/main.ipynb
   license: BSD-3-Clause
   bibliography:
     - myst.datasets.bib
     - myst.doi.bib
     - myst.references.bib
+  # https://mystmd.org/guide/frontmatter#frontmatter-downloads
+  # https://mystmd.org/guide/website-downloads
+  # downloads:
+  #   - file: ...
+  #   - id: ...
+
+  # https://mystmd.org/guide/website-downloads#include-exported-pdf
+  # exports:
+  #   - format: pdf
+  #     template: lapreprint-typst
+  #     output: exports/my-document.pdf
+  #     id: my-document-export
+  # downloads:
+  #   - id: my-document-export
+  #     title: A PDF of this document
+
 
 site:
   template: book-theme

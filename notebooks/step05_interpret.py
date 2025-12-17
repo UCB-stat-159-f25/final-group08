@@ -7,18 +7,14 @@
 #       format_name: percent
 #       format_version: '1.3'
 #       jupytext_version: 1.18.1
-#   kernelspec:
-#     display_name: IPython - final-group08
-#     language: python
-#     name: final-group08
 # ---
 
 # %% [markdown]
 # ---
-# title: Step 02 - Exploratory Data Analysis (EDA) 
+# title: Step 05- Interpret
 # subject: Churn Analysis
-# subtitle: Step 02 - Exploratory Data Analysis (EDA) - Churn Analysis
-# short_title: Exploratory Data Analysis (EDA)
+# subtitle: Step 05 - Interpret - Churn Analysis
+# short_title: Explanations and Interpretations
 # date: 2025-12-17
 #
 # affiliations:
@@ -64,39 +60,13 @@
 # exports:
 #   - format: pdf
 #     template: lapreprint-typst
-#     output: ../pdf_builds/step02_eda/step02_eda_ipynb_to.pdf
+#     output: ../pdf_builds/step05_interpret/step05_interpret_ipynb_to.pdf
 #     line_numbers: true
 #
 # license: CC-BY-4.0
 #
-# keywords: exploratory, data, analysis, eda, churn, spotify
+# keywords: interpret, churn, spotify
 #
-# abstract: What is the coverage of the exploratory data analysis? What did we find?
+# abstract: What are the explanations? intrepretations?
 # ---
-
-# %% [markdown]
-# # Step 02: Exploratory Data Analysis (EDA)
-
-# %%
-import src.step00_utils as step00_utils
-
-# %%
-step00_utils.DIR_PROJECT_CURRENT
-
-# %%
-step00_utils.DIR_PROJECT_HOME
-
-# %%
-step00_utils.DIR_DATA
-
-# %% [markdown]
-# Q: ...
-# - A: ...
-
-# %%
-
-# %% [markdown]
-# Q: ...
-# - A: ...
-
-# %%
+#

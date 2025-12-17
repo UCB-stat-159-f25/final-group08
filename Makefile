@@ -27,7 +27,7 @@ CONDA_DEACTIVATE := $(CONDA_INIT) && conda deactivate
 # 01. Environment Management - Primitives
 ############
 
-.PHONY: env-source-conda env-create-from-scratch env-create-from-yml \
+.PHONY: env-source-conda env-create-from-scratch env-create-from-yml env-update-from-yml \
         env-activate env-install-basics env-export-from-history \
         env-deactivate env-list env-list-packages env-remove
 
@@ -41,6 +41,9 @@ env-create-from-scratch:
 # env-create-from-yml: env-source-conda
 env-create-from-yml:
 	conda env create -f environment.yml
+
+env-update-from-yml:
+	conda env update -f environment.yml -n $(ENV_NAME)
 
 # env-activate: env-source-conda
 env-activate:
@@ -169,9 +172,8 @@ all-env-create-from-yml:
 	$(CONDA_INIT); \
 	conda env create -f environment.yml -n $(ENV_NAME) || conda env update -f environment.yml -n $(ENV_NAME); \
 	conda activate $(ENV_NAME); \
-	
-	pip install -e .
-	python -m ipykernel install --user --name $(ENV_NAME) --display-name "IPython - $(ENV_NAME)"
+	pip install -e .; \
+	python -m ipykernel install --user --name $(ENV_NAME) --display-name "IPython - $(ENV_NAME)";
 	
 	@echo "Environment created from environment.yml and kernel installed."
 
@@ -258,7 +260,8 @@ dir-create-notebooks:
 		notebooks/step02_eda.ipynb \
 		notebooks/step03_features.ipynb \
 		notebooks/step04_modeling.ipynb \
-		notebooks/step05_main.ipynb
+		notebooks/step05_interpret.ipynb \
+		notebooks/main.ipynb
 
 	@echo "Created the notebooks directory and files."
 
@@ -275,7 +278,8 @@ dir-create-fig-builds:
 		fig_builds/step02_eda \
 		fig_builds/step03_features \
 		fig_builds/step04_modeling \
-		fig_builds/step05_main
+		fig_builds/step05_interpret \
+		fig_builds/main
 
 	touch fig_builds/.gitkeep \
 		fig_builds/step00_utils/.gitkeep \
@@ -283,9 +287,10 @@ dir-create-fig-builds:
 		fig_builds/step02_eda/.gitkeep \
 		fig_builds/step03_features/.gitkeep \
 		fig_builds/step04_modeling/.gitkeep \
-		fig_builds/step05_main/.gitkeep
+		fig_builds/step05_interpret/.gitkeep \
+		fig_builds/main/.gitkeep
 
-		@echo "Deleted the fig_builds directory and files."
+		@echo "Created the fig_builds directory and files."
 
 dir-delete-fig-builds:
 	rm -rf fig_builds
@@ -299,7 +304,8 @@ dir-create-pdf-builds:
 		pdf_builds/step02_eda \
 		pdf_builds/step03_features \
 		pdf_builds/step04_modeling \
-		pdf_builds/step05_main
+		pdf_builds/step05_interpret \
+		pdf_builds/main
 
 	touch pdf_builds/.gitkeep \
 		pdf_builds/step00_utils/.gitkeep \
@@ -307,7 +313,8 @@ dir-create-pdf-builds:
 		pdf_builds/step02_eda/.gitkeep \
 		pdf_builds/step03_features/.gitkeep \
 		pdf_builds/step04_modeling/.gitkeep \
-		pdf_builds/step05_main/.gitkeep
+		pdf_builds/step05_interpret/.gitkeep \
+		pdf_builds/main/.gitkeep
 
 	@echo "Created the pdf_builds directory and files."
 
@@ -325,7 +332,8 @@ dir-create-src:
 		src/step02_eda.py \
 		src/step03_features.py \
 		src/step04_modeling.py \
-		src/step05_main.py
+		src/step05_interpret.py \
+		src/main.py
 
 	@echo "Created the src directory and files."
 
@@ -343,7 +351,8 @@ dir-create-tests:
 		tests/test_step02_eda.py \
 		tests/test_step03_features.py \
 		tests/test_step04_modeling.py \
-		tests/test_step05_main.py
+		tests/test_step05_interpret.py \
+		tests/test_main.py
 
 dir-delete-tests:
 	rm -rf tests
@@ -364,6 +373,7 @@ all-dir-remove: dir-delete-data dir-delete-docs dir-delete-misc dir-delete-noteb
 	nb-pair-step03-py nb-pair-step03-ipynb \
 	nb-pair-step04-py nb-pair-step04-ipynb \
 	nb-pair-step05-py nb-pair-step05-ipynb \
+	nb-pair-main-py np-pair-main-ipynb \
 	nb-pair-all-py nb-pair-all-ipynb 
 
 DIR_NOTEBOOKS = notebooks
@@ -399,17 +409,24 @@ nb-pair-step04-ipynb:
 	jupytext --set-formats ipynb:percent,py $(DIR_NOTEBOOKS)/step04_modeling.ipynb
 
 nb-pair-step05-py:
-	jupytext --set-formats py:percent,ipynb $(DIR_NOTEBOOKS)/step05_main.py
+	jupytext --set-formats py:percent,ipynb $(DIR_NOTEBOOKS)/step05_interpret.py
 
 nb-pair-step05-ipynb:
-	jupytext --set-formats ipynb:percent,py $(DIR_NOTEBOOKS)/step05_main.ipynb
+	jupytext --set-formats ipynb:percent,py $(DIR_NOTEBOOKS)/step05_interpret.ipynb
+
+nb-pair-main-py:
+	jupytext --set-formats py:percent,ipynb $(DIR_NOTEBOOKS)/main.py
+
+nb-pair-main-ipynb:
+	jupytext --set-formats ipynb:percent,py $(DIR_NOTEBOOKS)/main.ipynb
 
 nb-pair-all-py: nb-pair-step00-py \
 	nb-pair-step01-py \
 	nb-pair-step02-py \
 	nb-pair-step03-py \
 	nb-pair-step04-py \
-	nb-pair-step05-py
+	nb-pair-step05-py \
+	nb-pair-main-py
 # 	jupytext --set-formats py:percent,ipynb $(DIR_NOTEBOOKS)/step0{0..5}_*.py
 
 nb-pair-all-ipynb: nb-pair-step00-ipynb \
@@ -417,7 +434,8 @@ nb-pair-all-ipynb: nb-pair-step00-ipynb \
 	nb-pair-step02-ipynb \
 	nb-pair-step03-ipynb \
 	nb-pair-step04-ipynb \
-	nb-pair-step05-ipynb
+	nb-pair-step05-ipynb \
+	nb-pair-main-ipynb
 # 	jupytext --set-formats ipynb:percent,py $(DIR_NOTEBOOKS)/step0{0..5}_*.ipynb
 
 
@@ -428,6 +446,7 @@ nb-pair-all-ipynb: nb-pair-step00-ipynb \
 .PHONY: doc-ai-documentation doc-contribution-statement \
 	doc-license \
 	doc-myst-site-init doc-myst-site-init-toc doc-myst-site-init-ghpages \
+	doc-myst-build doc-myst-build-bibtex doc-myst-build-html doc-myst-build-bibtex \
 	doc-nbconvert
 
 doc-ai-documentation:
@@ -471,7 +490,14 @@ doc-ai-documentation:
 		OUTPUT:
 
 		------------------------------------------------
-		[Step 05 for notebooks/step05_main.ipynb, src/step05_main.py, and tests/test_step05_main.py]
+		[Step 05 for notebooks/step05_interpret.ipynb, src/step05_main.py, and tests/test_step05_interpret.py]
+
+		PROMPT:
+
+		OUTPUT:
+
+		------------------------------------------------
+		[Step Final for notebooks/main.ipynb, src/main.py, and tests/test_main_interpret.py]
 
 		PROMPT:
 
@@ -505,10 +531,14 @@ doc-contribution-statement:
 
 
 		------------------------------------------------
-		[Step 05 for notebooks/step05_main.ipynb, src/step05_main.py, and tests/test_step05_main.py]
+		[Step 05 for notebooks/step05_interpret.ipynb, src/step05_interpret.py, and tests/test_step05_interpret.py]
 
 		TEAM MEMBER NAME(S) - PERCENT CONTRIBUTION:
 
+		------------------------------------------------
+		[Step Main for notebooks/main.ipynb, src/main.py, and tests/test_main.py]
+
+		TEAM MEMBER NAME(S) - PERCENT CONTRIBUTION:
 
 	EOF
 
@@ -531,17 +561,23 @@ doc-myst-site-init-ghpages:
 doc-myst-build:
 	myst build
 
+doc-myst-build-bibtex:
+	myst build --doi-bib
+
 doc-myst-build-html:
 	myst build --html
 
-doc-myst-build-bibtex:
-	myst build --doi-bib
+doc-myst-build-pdf:
+	myst build --pdf
 
 doc-pyproject-toml:
 	touch pyproject.toml
 
 doc-nbconvert-step00-utils-to-pdf:
 	jupyter nbconvert --to pdf --output-dir pdf_builds/step00_utils notebooks/step00_utils.ipynb
+# 	jupyter nbconvert --to markdown --output-dir pdf_builds/step00_utils notebooks/step00_utils.ipynb
+# 	myst build pdf_builds/step00_utils/step00_utils.md --typst true
+#   myst build pdf_builds/step00_utils/step00_utils.md --pdf --template lapreprint-typst
 
 doc-nbconvert-step01-data-to-pdf:
 	jupyter nbconvert --to pdf --output-dir pdf_builds/step01_data notebooks/step01_data.ipynb
@@ -555,8 +591,11 @@ doc-nbconvert-step03-features-to-pdf:
 doc-nbconvert-step04-modeling-to-pdf:
 	jupyter nbconvert --to pdf --output-dir pdf_builds/step04_modeling notebooks/step04_modeling.ipynb
 
-doc-nbconvert-step05-main-to-pdf:
-	jupyter nbconvert --to pdf --output-dir pdf_builds/step05_main notebooks/step05_main.ipynb
+doc-nbconvert-step05-interpret-to-pdf:
+	jupyter nbconvert --to pdf --output-dir pdf_builds/step05_interpret notebooks/step05_interpret.ipynb
+
+doc-nbconvert-main-to-pdf:
+	jupyter nbconvert --to pdf --output-dir pdf_builds/main notebooks/main.ipynb
 
 ###
 # TODO rename from doc-nbconvert-all-to-pdfs to all, as required
@@ -567,7 +606,8 @@ doc-nbconvert-all-to-pdfs: doc-nbconvert-step00-utils-to-pdf \
 	doc-nbconvert-step02_eda-to-pdf \
 	doc-nbconvert-step03-features-to-pdf \
 	doc-nbconvert-step04-modeling-to-pdf \
-	doc-nbconvert-step05-main-to-pdf
+	doc-nbconvert-step05_interpret-to-pdf \
+	doc-nbconvert-main-to-pdf
 
 
 ############
@@ -613,6 +653,7 @@ help:
 	@echo "  env-source-conda                      - Source conda init script (Datahub default)"
 	@echo "  env-create-from-scratch               - Create env $(ENV_NAME) with python=$(PYTHON_VERSION)"
 	@echo "  env-create-from-yml                   - Create env from environment.yml"
+	@echo "  env-update-from-yml                   - Update (after adding new packages to ) environment.yml" 
 	@echo "  env-activate                          - Activate env and pip install -e ."
 	@echo "  env-install-basics                    - Install baseline packages into active env"
 	@echo "  env-export-from-history               - Export minimal environment.yml from history"
@@ -663,8 +704,10 @@ help:
 	@echo "  nb-pair-step03-ipynb                  - Pair step03_features.ipynb -> step03_features.py"
 	@echo "  nb-pair-step04-py                     - Pair step04_modeling.py -> step04_modeling.ipynb"
 	@echo "  nb-pair-step04-ipynb                  - Pair step04_modeling.ipynb -> step04_modeling.py"
-	@echo "  nb-pair-step05-py                     - Pair step05_main.py -> step05_main.ipynb"
-	@echo "  nb-pair-step05-ipynb                  - Pair step05_main.ipynb -> step05_main.py"
+	@echo "  nb-pair-step05-py                     - Pair step05_interpret.py -> step05_interpret.ipynb"
+	@echo "  nb-pair-step05-ipynb                  - Pair step05_interpret.ipynb -> step05_interpret.py"
+	@echo "  nb-pair-main-py                       - Pair main.py -> main.ipynb"
+	@echo "  nb-pair-main-ipynb                    - Pair main.ipynb -> main.py"
 	@echo "  nb-pair-all-py                        - Pair all .py -> .ipynb"
 	@echo "  nb-pair-all-ipynb                     - Pair all .ipynb -> .py"
 	@echo ""
@@ -678,8 +721,9 @@ help:
 	@echo "  doc-myst-site-init-toc                - Run myst init --write-toc"
 	@echo "  doc-myst-site-init-ghpages            - Run myst init --gh-pages"
 	@echo "  doc-myst-build                        - Run myst build"
-	@echo "  doc-myst-build-html                   - Run myst build --html"
 	@echo "  doc-myst-build-bibtex                 - Run myst build --doi-bib"
+	@echo "  doc-myst-build-html                   - Run myst build --html"
+	@echo "  doc-myst-build-pdf                    - Run myst build --doi-pdf"
 	@echo ""
 	@echo "07. PDF builds (nbconvert):"
 	@echo "  doc-nbconvert-step00-utils-to-pdf     - Build step00_utils.pdf"
@@ -687,5 +731,6 @@ help:
 	@echo "  doc-nbconvert-step02-eda-to-pdf       - Build step02_eda.pdf"
 	@echo "  doc-nbconvert-step03-features-to-pdf  - Build step03_features.pdf"
 	@echo "  doc-nbconvert-step04-modeling-to-pdf  - Build step04_modeling.pdf"
-	@echo "  doc-nbconvert-step05-main-to-pdf      - Build step05_main.pdf"
+	@echo "  doc-nbconvert-step05-interpret-to-pdf - Build step05_interpret.pdf"
+	@echo "  doc-nbconvert-main-to-pdf             - Build main.pdf"
 	@echo "  doc-nbconvert-all-to-pdfs             - Build all step PDFs"

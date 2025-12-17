@@ -27,9 +27,16 @@ dependencies:
   - jupyter-ai
   - jupyter-ai-magics
   - jupytext
+  - mystmd
   - nbconvert
   - pandoc
   - texlive-core
+  # - texlive-fonts-recommended
+  # - texlive-latex-recommended
+  # - texlive-latex-extra
+  # - texlive-bibtex-extra
+  - typst
+  - typst-py
 
   # ---------------------------------------------------------------------------
   # 02. Data I/O / Reproducibility / Validation
@@ -62,6 +69,8 @@ dependencies:
   - category_encoders
   - xgboost
   - lightgbm
+  # - tabnet
+  # - pytorch-tabnet
 
   # ---------------------------------------------------------------------------
   # 05. Explainability / Diagnostics
@@ -89,6 +98,8 @@ dependencies:
   # ---------------------------------------------------------------------------
   - pip:
       - -e .
+      # - tabnet
+      - pytorch-tabnet
 
 ###
 # Removed prefix: (better for sharing + Binder/CI friendliness)
