@@ -15,9 +15,9 @@
 
 # %% [markdown]
 # ---
-# title: Step 01 - Data
+# title: Step 01 - Raw Data
 # subject: Churn Analysis
-# subtitle: Step 00 - Data - Churn Analysis
+# subtitle: Step 01 - Raw Data - Churn Analysis
 # short_title: Raw Data
 # date: 2025-12-17
 #
