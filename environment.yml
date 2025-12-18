@@ -99,7 +99,7 @@ dependencies:
   - pip:
       - -e .
       # - tabnet
-      - pytorch-tabnet
+      # - pytorch-tabnet
 
 ###
 # Removed prefix: (better for sharing + Binder/CI friendliness)
