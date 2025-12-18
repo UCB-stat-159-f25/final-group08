@@ -12,6 +12,3 @@
 [Step 00 for notebooks/step00_utils.ipynb, src/step00_utils.py, and tests/test_step00_utils.py]
 [Step 01 for notebooks/step01_data.ipynb, src/step01_data.py, and tests/test_step01_data.py]
 - TEAM MEMBER NAME(S) - PERCENT CONTRIBUTION: Olorundamilola Kazeem - 100%
-
-
-
