@@ -27,24 +27,27 @@
 #
 # authors:
 #   - name: Jocelyn Perez
-#     affiliations: ["ucb"]
 #     email: jocelyneperez@berkeley.edu
 #     orcid: 0009-0009-0231-9254
+#     affiliations: ["ucb"]
+#
 #
 #   - name: Claire Kaoru Shimazaki
-#     affiliations: ["ucb"]
 #     email: ckshimazaki@berkeley.edu
 #     orcid: 0009-0001-0828-3370
+#     affiliations: ["ucb"]
+#
 #
 #   - name: Colby Zhang
-#     affiliations: ["ucb"]
 #     email: colbyzhang@berkeley.edu
 #     orcid: 0009-0005-4786-6922
+#     affiliations: ["ucb"]
+#
 #
 #   - name: Olorundamilola Kazeem
-#     affiliations: ["ucb"]
 #     email: dami@berkeley.edu
 #     orcid: 0000-0003-2118-2221
+#     affiliations: ["ucb"]
 #
 # # https://mystmd.org/guide/frontmatter#frontmatter-downloads
 # # https://mystmd.org/guide/website-downloads
@@ -67,7 +70,7 @@
 #     output: ../pdf_builds/step01_data/step01_data_ipynb_to.pdf
 #     line_numbers: true
 #
-# license: CC-BY-4.0
+# license: BSD-3-Clause
 #
 # keywords: data, raw data, churn, spotify
 #
