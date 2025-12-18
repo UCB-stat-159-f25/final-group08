@@ -6,7 +6,7 @@
 
 **Jocelyn Perez** • **Claire Kaoru Shimazaki** • **Colby Zhang** • **Olorundamilola Kazeem**
 
-[Group Resources - Internal Use Only](https://drive.google.com/drive/folders/1Za-QzHQQBWf5ob-vrTWZSwD2isSU4_oy?usp=sharing)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/UCB-stat-159-f25/final-group08/main)
 
 ---
 
@@ -43,34 +43,31 @@ A good README should be short but also provide all the useful information to hel
 ### 01. The Raw Dataset
 
 ```bash
-
+❯ notebooks/step01_data.ipynb 
 ```
 
-### 02. The Exploratory Data Analysis 
+### 02. The Exploratory Data Analysis (EDA)
 
 ```bash
-
+❯ notebooks/step02_eda.ipynb
 ```
 
-### 03. The Features i.e. Data Transformation and Vectorization
+### 03. The Featurization i.e. Data Transformation and Vectorization
 
 ```bash
-
+❯ notebooks/step03_features.ipynb 
 ```
 
 ### 04. The Modeling i.e. Analysis and Modeling 
 
 ```bash
-
+❯ notebooks/step04_modeling.ipynb
 ```
 
-### 05. The Reporting i.e. Consolidation
-
-
-...
+### 05. The Explanability i.e. Interpretability Analysis
 
 ```bash
-
+❯ notebooks/step05_interpret.ipynb
 ```
 
 ## The Project Structure
