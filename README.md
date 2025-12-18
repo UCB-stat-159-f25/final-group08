@@ -6,7 +6,7 @@
 
 **Jocelyn Perez** • **Claire Kaoru Shimazaki** • **Colby Zhang** • **Olorundamilola Kazeem**
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/UCB-stat-159-f25/final-group08/main)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/UCB-stat-159-f25/final-group08/main)    *    [![DOI](https://zenodo.org/badge/1110891217.svg)](https://doi.org/10.5281/zenodo.17972478)
 
 ---
 
