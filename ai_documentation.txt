@@ -24,5 +24,58 @@ PROMPT:
 OUTPUT:
 
 [Step Final for notebooks/main.ipynb, src/main.py, and tests/test_main_interpret.py]
-PROMPT:
-OUTPUT:
+PROMPT: how to format things in markdown
+OUTPUT: Here’s a clear, practical Markdown formatting guide you can use. Headings
+# Main Title
+## Section Title
+### Subsection Title
+Bold, Italics, Inline Code
+**bold text**
+*italic text*
+`inline code`
+Paragraphs (very important)
+Always leave a blank line between paragraphs:
+This is the first paragraph.
+
+This is the second paragraph.
+Without the blank line, Markdown will treat them as one block.
+Lists
+Bullet list
+- First item
+- Second item
+- Third item
+Numbered list
+1. First item
+2. Second item
+3. Third item
+Nested lists
+- Main item
+  - Sub item
+  - Sub item
+Links
+[Link text](https://example.com)
+Images
+![Image description](path/to/image.png)
+Block quotes
+> This is a quoted statement.
+Horizontal divider
+---
+Tables
+| Column 1 | Column 2 |
+|----------|----------|
+| Value A  | Value B  |
+| Value C  | Value D  |
+Math (if supported)
+$E[X]$
+Example: clean Markdown section
+## **Section Title**
+
+This is a paragraph introducing the section.
+
+- Key point one
+- Key point two
+- Key point three
+Common mistakes to avoid
+❌ No blank lines between paragraphs
+❌ Using quotes instead of ** for bold
+❌ Writing Markdown inside a code cell
