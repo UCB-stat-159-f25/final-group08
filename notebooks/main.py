@@ -1,7 +1,7 @@
 # ---
 # jupyter:
 #   jupytext:
-#     formats: ipynb:percent,py:percent
+#     formats: py:percent,ipynb
 #     text_representation:
 #       extension: .py
 #       format_name: percent
@@ -173,22 +173,50 @@ display(Image(filename=str(img_path_th)))
 
 # %% [markdown]
 # ## Feature Engineering and Preprocessing
-# Raw usage logs capture what users did, but not how they experienced the platform. To better represent user engagement and frustration, we engineer interpretable behavioral features such as average song length and ads per song, which proxy engagement intensity and ad tolerance, respectively.
-# To prevent data leakage and ensure reproducibility, we construct a preprocessing pipeline using scikit-learn. Numerical features are imputed and standardized, categorical features are one-hot encoded, and the dataset is split using stratified sampling to preserve the churn rate in both training and test sets. This pipeline produces consistent, vectorized inputs for all downstream models.
+# We create additional features to better capture user engagement and ad exposure, which are likely related to churn. In particular, we engineer avg_song_length to reflect listening depth and ads_per_song (a "frustration metric) to measure ad exposure relative to usage. These features help summarize user behavior in a more interpretable way.
+# To ensure fair evaluation given the class imbalance, we split the data into 80% training and 20% testing using a stratified split that preserves the churn rate. We then preprocess the data using a scikit-learn pipeline: numeric features are imputed and standardized, categorical features are one-hot encoded, and binary features are passed through unchanged. This results in a processed feature matrix that is used consistently across all downstream models.
 
 # %% [markdown]
 # ## Model Building and Evaluation
-# We first establish a baseline using Logistic Regression with class weighting to account for imbalance. While interpretable, this linear model achieves limited performance, reflecting the complexity of churn behavior.
-# We then train a Random Forest classifier to capture non-linear relationships and feature interactions. Hyperparameters are tuned using cross-validation with F1-score as the primary metric. The Random Forest outperforms the baseline model, confirming that churn depends on interacting behavioral factors rather than simple linear effects.
-# However, despite improved performance, the model’s recall for churned users remains modest. Many churners are misclassified as retained users, highlighting the inherent difficulty of predicting churn and the presence of unobserved factors beyond behavioral data.
+# We first establish a baseline using Logistic Regression with class weighting to account for imbalance. While interpretable, this linear model achieves limited performance, which shows the complexity of churn behavior.
+# We then train a Random Forest classifier to model non-linear relationships and feature interactions. Hyperparameters are tuned using cross-validation with F1-score as the primary metric. The Random Forest outperforms the baseline model, which confirms that churn depends on interacting behavioral factors rather than simple linear effects.
+# However, despite the improved performance, recall for churned users remains low. Many churners are misclassified as retained users, which shows the inherent difficulty of predicting churn and the presence of unobserved factors beyond behavioral data.
+
+# %%
+img_path4 = Path.cwd().parent / "fig_builds" / "step04_modeling" / "step04_confusion_matrix.png"
+display(Image(filename=str(img_path4)))
+
+# %% [markdown]
+# In the confusion matrix for the random forest, the model correctly predicts most non-churned users but misses many churned users, showing that accuracy alone is not sufficient under class imbalance.
+
+# %%
+img_path5 = Path.cwd().parent / "fig_builds" / "step04_modeling" / "step04_feature_importance.png"
+display(Image(filename=str(img_path5)))
+
+# %% [markdown]
+# Behavioral engagement features such as average song length, listening time, and skip rate are most important for the model. Again, this shows that usage patterns are stronger predictors of churn than demographic attributes.
 
 # %% [markdown]
 # ## Results and Interpretation
 # To understand why the Random Forest makes its predictions, we apply model interpretability techniques.
-# Global SHAP analysis shows that engagement-related features dominate churn predictions. Average song length, listening time, skip rate, and songs played per day are the most influential variables, while age plays a secondary role. Device type, country, and gender contribute relatively little to overall predictions.
-# Local SHAP explanations reveal that individual churn predictions arise from the combined effect of many small signals rather than a single decisive feature. For example, a churned user may be predicted to churn due to slightly reduced listening time, higher skip rate, and lower engagement simultaneously.
-# Partial dependence plots further illustrate non-linear relationships. Churn risk decreases sharply as engagement increases at low levels, then plateaus, indicating diminishing returns to very high engagement. This suggests that early drops in engagement may be especially informative warning signs.
-# Finally, error analysis shows that many missed churners exhibit engagement patterns similar to retained users. This explains the model’s low recall and suggests that churn decisions are often driven by external or unobserved factors such as pricing changes, competitor offers, or personal circumstances.
+# We analyze model outputs to understand what drives churn predictions. Global SHAP results show that engagement-related features such as average song length, listening time, skip rate, and songs played per day are the strongest drivers of churn, while demographic and device features have much less influence. Local SHAP explanations suggest that churn predictions usually come from the combined effect of several small engagement signals, rather than one dominant factor. Partial dependence analysis shows that churn risk drops quickly as engagement increases at low levels and then levels off, indicating that early declines in engagement are especially important.
+
+# %%
+img_path5 = Path.cwd().parent / "fig_builds" / "step05_interpret" / "global_shap_importance.png"
+display(Image(filename=str(img_path5)))
+
+# %% [markdown]
+# Churn predictions are primarily driven by engagement-related features such as average song length, listening time, and skip rate, while demographic and device features play a smaller role.
+
+# %%
+img_path6 = Path.cwd().parent / "fig_builds" / "step05_interpret" / "pdp_num_avg_song_length.png"
+display(Image(filename=str(img_path6)))
+
+# %% [markdown]
+# Users with very short average song lengths have higher predicted churn risk, while users who listen to longer songs on average are less likely to churn.
+
+# %% [markdown]
+# Overall, churn is more closely related to how users engage with the platform than to who they are. The model’s low recall suggests that many churn decisions are influenced by external or unobserved factors not captured in the data.
 
 # %% [markdown]
 # ## Limitations and Conclusion
@@ -198,5 +226,11 @@ display(Image(filename=str(img_path_th)))
 
 # %% [markdown]
 # ## Author Contributions
-
-# %%
+#
+# Jocelyn Perez worked on `Step 02 (Exploratory Data Analysis)`, including the analysis notebook (`step02_eda.ipynb`). Jocelyn contributed 100% to this stage of the project.
+#
+# Colby Zhang worked on `Step 03 (Feature Engineering)` and `Step 04 (Modeling)`, developing the corresponding notebooks (`step03_features.ipynb`, `step04_modeling.ipynb`) and source code (`src/step03_features.py`, `src/step04_modeling.py`). Colby contributed 100% to these components.
+#
+# Claire K. Shimazaki worked on `Step 05 (Interpretation)`, including the interpretation notebook (`step05_interpret.ipynb`) and supporting source code (`src/step05_interpret.py`). Claire contributed 100% to this stage of the project.
+#
+# Olorundamilola Kazeem worked on the overall project structure and implementation of `Step 00 (Utilities)` and `Step 01 (Data)`, including the development of the Jupyter notebooks (`step00_utils.ipynb`, `step01_data.ipynb`), corresponding source code (`src/step00_utils.py`, `src/step01_data.py`), and all associated unit tests (`tests/test_step00_utils.py`, `tests/test_step01_data.py`). Olorundamilola contributed 100% to these components.
