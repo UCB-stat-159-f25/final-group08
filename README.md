@@ -28,16 +28,22 @@
 ---
 
 ## About the Project
-...
 
-### Background
+User churn is a critical challenge for subscription-based platforms such as Spotify, where long-term success depends on sustained user engagement. Understanding which behavioral patterns and user characteristics are associated with churn can help platforms identify at-risk users and design more effective retention strategies.
+
+In this project, we analyze a synthetic Spotify churn dataset to answer the following questions:
+- What behavioral and demographic factors are associated with user churn?
+- How well can churn be predicted using machine learning models?
+- Which features most strongly drive churn predictions, and how do they influence model decisions?
+
+Our analysis follows a structured, reproducible workflow, progressing from data understanding and exploratory analysis to feature engineering, modeling, and interpretability.
+
+## What's Inside?
+
+### 00. The Main Report
 
 ```bash
-Write a short self-contained description of the project, including the motivation behind your project and the analysis you conducted. 
-
-Include all relevant information about how to run the analysis, including installation steps (for any packages, environments, etc.), testing, and automation. 
-
-A good README should be short but also provide all the useful information to help the user to start running the analysis.
+❯ notebooks/main.ipynb 
 ```
 
 ### 01. The Raw Dataset
@@ -211,7 +217,7 @@ make env || make env && conda activate final-group08
 
 ## 02. How to Test the Project
 
-- To be added/implemented
+- To test run the following command
 
 ```bash
 ❯ make test
