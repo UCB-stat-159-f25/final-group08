@@ -4,7 +4,7 @@
 # Imports
 ###
 import pathlib as pl
-
+from pathlib import Path
 
 ###
 # Filepaths and Files 
@@ -59,3 +59,25 @@ FILE_SPOTIFY_CHURN_DATASET_CSV     = "spotify_churn_dataset.csv"
 ###
 # ...
 ###
+
+def get_project_root(start_path=None):
+    """
+    Return the project root directory.
+
+    Parameters
+    ----------
+    start_path : Path or None
+
+    Returns
+    -------
+    Path
+    """
+    if start_path is None:
+        start_path = pl.Path.cwd()
+
+    return start_path.resolve()
+
+
+def is_csv_file(path):
+    """Return True if path has .csv suffix."""
+    return Path(path).suffix == ".csv"

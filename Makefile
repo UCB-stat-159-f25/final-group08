@@ -623,7 +623,8 @@ env: all-env-create-from-yml
 	@echo "Created end-to-end environment — All tasks complete!"
 
 test:
-	@echo "TODO - Created end-to-end environment — All tasks complete!"
+	pytest -v
+	@echo "Tested end-to-end — All tests complete!"
 
 
 ############
