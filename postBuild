@@ -1,6 +1,1 @@
 pip install -e .
-
-make env
-
-make all
-

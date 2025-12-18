@@ -16,12 +16,13 @@ project:
     - title: Notebooks
       children:
         # - file: notebooks/step00_utils.ipynb
+        - file: notebooks/main.ipynb
         - file: notebooks/step01_data.ipynb
         - file: notebooks/step02_eda.ipynb
         - file: notebooks/step03_features.ipynb
         - file: notebooks/step04_modeling.ipynb
         - file: notebooks/step05_interpret.ipynb
-        - file: notebooks/main.ipynb
+
   license: BSD-3-Clause
   bibliography:
     - myst.datasets.bib
